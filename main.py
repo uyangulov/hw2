@@ -89,15 +89,15 @@ def hamiltonian(gammas):
 
 def evolve(state, H, dt):
     """
-    Evolve the system state according to the Hamiltonian.
+    Evolve the state according to the Hamiltonian.
     
     Args:
-        state (np.ndarray): Current state of the system.
-        H (np.ndarray): Hamiltonian of the system.
+        state (np.ndarray): Current state.
+        H (np.ndarray): Hamiltonian of the system+bath.
         dt (float): Time step.
     
     Returns:
-        np.ndarray: Updated system state.
+        np.ndarray: Updated state.
     """
     return state * np.exp(-1j * H * dt)
 
@@ -106,23 +106,23 @@ def apply_pi_pulse(state):
     Apply a pi-pulse (bit-flip operation) to the system.
     
     Args:
-        state (np.ndarray): Current state of the system.
+        state (np.ndarray): Current system+bath state.
     
     Returns:
-        np.ndarray: Flipped system state.
+        np.ndarray: State with bit-flip applied to system.
     """
     state_m = state[::-1, ::-1, :]
     return state_m
 
 def system_rho(state):
     """
-    Compute the reduced density matrix of the system by taking trace over bath indeces.
+    Compute density matrix of system by taking trace over bath indeces.
     
     Args:
-        state (np.ndarray): System-environment state.
+        state (np.ndarray): System-bath state.
     
     Returns:
-        np.ndarray: Reduced density matrix of the system.
+        np.ndarray: Density matrix of the system.
     """
     return np.sum(state, axis=tuple(range(2, state.ndim)))
 
@@ -158,7 +158,7 @@ tau = .5
 N_t = 1000
 timesteps = np.linspace(0, 2*tau, N_t)
 dt = np.diff(timesteps)[0]
-N_bath = 5
+N_bath = 10
 T = 5
 E0 = .1
 E1 = .9
