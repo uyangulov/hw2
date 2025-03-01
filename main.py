@@ -85,7 +85,6 @@ def hamiltonian(gammas):
     I = I_bitwise(N_bath)
     bath_phase_mask = (gammas * (-1)**I).sum(axis=1)
     phase_mask = sys_phase_mask[..., None] * bath_phase_mask[None, None, :]
-    print(phase_mask)
     return phase_mask
 
 def evolve(state, H, dt):
