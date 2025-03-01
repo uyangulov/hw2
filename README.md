@@ -26,7 +26,7 @@ $$\rho^{system + bath} (t=0) = \rho^{system} (t = 0) \otimes \rho^{bath} (t = 0 
 
 where:
 
-$$\rho^{system + bath} \in H_{system} \otimes H_{system}^{\dag} \otimes H_{1} \otimes H_{1}^{\dag} \otimes \dots \otimes H_{N_{bath}} \otimes H_{N_{bath}}^{\dag}$$
+$$\rho^{system + bath} \in H_{system} \otimes H_{system}^{\dagger} \otimes H_{1} \otimes H_{1}^{\dagger} \otimes \dots \otimes H_{N_{bath}} \otimes H_{N_{bath}}^{\dagger}$$
 
 ---
 
@@ -34,7 +34,7 @@ $$\rho^{system + bath} \in H_{system} \otimes H_{system}^{\dag} \otimes H_{1} \o
 
 The system+bath state can be represented as a tensor in the space:
 
-$$H_{system} \otimes H_{system}^{\dag} \otimes H_{1}  \otimes \dots \otimes H_{N_{bath}} \otimes H_{1}^{\dag} \otimes \dots \otimes H_{N_{bath}}^{\dag}$$
+$$H_{system} \otimes H_{system}^{\dagger} \otimes H_{1}  \otimes \dots \otimes H_{N_{bath}} \otimes H_{1}^{\dagger} \otimes \dots \otimes H_{N_{bath}}^{\dagger}$$
 
 In this space, the density matrix takes the form:
 
@@ -68,14 +68,14 @@ $$H = \sum\limits_{q=1}^{N_{bath}} \gamma_q Z_{system} Z_{q}$$
 
 where $q$ is the bath index.
 
-Since:
-
-$$Z_{system} Z_{q} \:\: |j\rangle \otimes |i_1,...i_{N_{bath}}\rangle = (-1)^{(j + i_q)} |j\rangle \otimes |i_1,...i_{N_{bath}}\rangle$$
-
 The evolution operator is expressed as:
 
 $$ U(t) = \exp(-iHt) $$
 
-which leads to:
+Since:
 
-$$ U(t) \:|j\rangle \langle k| \otimes |I\rangle \langle I| \: U(t)^{\dagger} = e^{-it\{(-1)^{j} - (-1)^{k}\} \sum_q \gamma_q (-1)^q} |j\rangle \langle k| \otimes |I\rangle \langle I| $$
+$$Z_{system} Z_{q} |j\rangle \otimes |i_1,...i_{N_{bath}}\rangle = (-1)^{(j + i_q)} |j\rangle \otimes |i_1,...i_{N_{bath}}\rangle$$
+
+We arrive at:
+
+$$ U(t) |j\rangle \langle k| \otimes |I\rangle \langle I| U(t)^{\dagger} = e^{-it\{(-1)^{j} - (-1)^{k}\} \sum_q \gamma_q (-1)^q} |j\rangle \langle k| \otimes |I\rangle \langle I| $$
