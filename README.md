@@ -26,7 +26,10 @@ $$\rho^{system + bath} (t=0) = \rho^{system} (t = 0) \otimes \rho^{bath} (t = 0 
 
 where:
 
-$$\rho^{system + bath} \in H_{system} \otimes H_{system}^{\dagger} \otimes H_{1} \otimes H_{1}^{\dagger} \otimes \dots \otimes H_{N_{bath}} \otimes H_{N_{bath}}^{\dagger}$$
+
+\[
+\rho^{system + bath} = \sum\limits_{\substack{(j,k) \in \{0,1\}^{\otimes 2} \\ (i_1, \dots, i_{N_{bath}}) \in \{0,1\}^{\otimes N_{bath}}}} \rho^{system}_{j,k} |j\rangle \langle k| \otimes W_{i_1,i_2, \dots, i_{N_{bath}}} |i_1 \dots i_{N_{bath}}\rangle \langle i_1 \dots i_{N_{bath}}|
+\]
 
 ---
 
@@ -50,11 +53,15 @@ $$W_{i_1,i_2, \dots i_{N_{bath}}} = \prod \limits_{k=1}^{N_{bath}} w_{i_k} = w_0
 
 The system+bath state is stored as an `np.ndarray` object `state` of shape `(2,2,N_{bath})`, such that:
 
-$$state[j,k,i_1,...i_N] = \rho^{system}_{j,k} W_{i_1,i_2, \dots i_{N_{bath}}}$$
+\[
+state[j,k,i_1,...i_N] = \rho^{system}_{j,k} W_{i_1,i_2, \dots i_{N_{bath}}}
+\]
 
 Introducing the super-index $I = (i_1,i_2, \dots i_{N_{bath}})$ for simplicity:
 
-$$state[j,k,I] = \rho^{system}_{j,k} W_{I}$$
+\[
+\text{state}[j,k,I] = \rho^{\text{system}}_{j,k} W_{I}
+\]
 
 *Note: In the program, $I$ is 0-indexed, while in the formulas above, $I$ is 1-indexed.*
 
